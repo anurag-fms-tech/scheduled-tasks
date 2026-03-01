@@ -1,3 +1,4 @@
+import os
 import datetime as dt
 from operator import index
 import random
@@ -36,8 +37,8 @@ with open("letter_templates/letter_3.txt") as letter:
 message = random.choice(templates)
 message = message.replace("[NAME]", name)
 
-MY_EMAIL = "anuraggangs@gmail.com"
-PASSWORD = "icba xvqe ceds solz"
+MY_EMAIL = os.environ.get("MY_EMAIL")
+PASSWORD = os.environ.get("MY_PASSWORD")
 
 import smtplib
 with smtplib.SMTP("smtp.gmail.com", 587) as connection:
